@@ -8,6 +8,18 @@ yco=[]
 mini=50001
 maxi=-1
 
+def BFS(v):
+  BFSDone[v]=1
+  if v==int(num)-1:
+    print 0
+    exit()
+  for neighbour in adjList[v]:
+    if visited[neighbour]==0:
+      visited[neighbour]==1
+  for neighbour in adjList[v]:
+    if BFSDone[neighbour]==0:
+      BFS(neighbour)
+
 def distance(x1,y1,x2,y2):
   return math.sqrt((x1-x2)**2+(y1-y2)**2)
 
@@ -46,7 +58,19 @@ while i < len(coord):
       adjList[j].append(i)
     j+=1
   i+=1
+
 print adjList
+visited=[]
+BFSDone=[]
+
+i=0
+while i<int(num):
+  visited.append(0)
+  BFSDone.append(0)
+  i+=1
+BFS(0)
+print 1
+
 
 
 
