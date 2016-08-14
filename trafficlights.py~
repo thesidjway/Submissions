@@ -1,0 +1,25 @@
+source,dest=raw_input().split()
+source,dest=int(source),int(dest)
+n,m=raw_input().split()
+n,m=int(n),int(m)
+
+
+flash=[]
+flash=raw_input().split()
+
+adjMat = [[100000 for i in range(n)] for j in range(n)]
+adjList= [[] for i in range(n)]
+i=0
+while i<m:
+	a,b,c=raw_input().split()
+	a,b,c=int(a),int(b),int(c)
+	adjMat[a-1][b-1]=c
+	adjMat[b-1][a-1]=c
+	adjList[a-1].append(b-1)
+	adjList[b-1].append(a-1)
+	i+=1
+
+
+
+
+
